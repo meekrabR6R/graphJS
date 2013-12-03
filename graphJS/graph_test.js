@@ -28,38 +28,23 @@ function makeGraph(){
 * Test One
 *********************************/
 function testIDs(graphTestData){
-
 	var testList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-	if (JSON.stringify(testList) === JSON.stringify(graphTestData.nodeIDs))
-		return true;
-
-	return false;
+	return (JSON.stringify(testList) === JSON.stringify(graphTestData.nodeIDs))		
 }
 
 /********************************
 * Test Two
 ********************************/
 function testData(graphTestData){
-
 	var testList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
-
-	if (JSON.stringify(testList) === JSON.stringify(graphTestData.nodeData))
-		return true;
-
-	return false;
-
+	return (JSON.stringify(testList) === JSON.stringify(graphTestData.nodeData))
 }
 
 /*****************************
 * Test Three
 ******************************/
 function testNodeCount(){
-
-	if(graph._numVertices === 10)
-		return true;
-
-	return false;
+  return (graph._numVertices === 10)
 }
 
 /********************************
@@ -70,10 +55,7 @@ function testDirectedEdges(){
 	var testNodeOne = graph.getNode(1);
 	var testNodeTwo = graph.getNode(2);
 
-	if(JSON.stringify(testNodeOne.edges) === "[2]" && JSON.stringify(testNodeTwo.edges) === "[]")
-		return true;
-
-	return false;
+	return (JSON.stringify(testNodeOne.edges) === "[2]" && JSON.stringify(testNodeTwo.edges) === "[]")
 }
 
 /*******************************
@@ -84,10 +66,7 @@ function testUndirectedEdges(){
 	var testNodeOne = graph.getNode(3);
 	var testNodeTwo = graph.getNode(4);
 
-	if(JSON.stringify(testNodeOne.edges) === "[4]" && JSON.stringify(testNodeTwo.edges) === "[3]")
-		return true;
-
-	return false;
+	return (JSON.stringify(testNodeOne.edges) === "[4]" && JSON.stringify(testNodeTwo.edges) === "[3]")
 }
 
 /*********************************
@@ -104,11 +83,8 @@ function testRemoveNode(){
 	for(i = 0; i < graph._numVertices; i++)
 		newNodeList.push(graph._nodes[i].id);
 
-	if(JSON.stringify(newNodeList) === JSON.stringify(testList) &&
+	return (JSON.stringify(newNodeList) === JSON.stringify(testList) &&
 		graph._numVertices === testCount && JSON.stringify(graph.getNode(3).edges) === "[]")
-		return true;
-
-	return false;
 }
 
 /*********************************
